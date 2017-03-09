@@ -4,4 +4,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.first
   end
 
+  def all_recipes
+    @recipes = Recipe.all
+  end
+
 end
