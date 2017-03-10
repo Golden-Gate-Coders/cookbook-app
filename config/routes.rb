@@ -3,5 +3,10 @@ Rails.application.routes.draw do
 
   get "/recipe" => "recipes#view_recipe"
   get "/all_recipes" => "recipes#all_recipes"
+  get "/sass_example" => "recipes#sass_example"
+
+
+  get "/new_recipe_form" => "recipes#new_recipe"
+  post "/new_recipe" => "recipes#create_recipe"
 
 end
