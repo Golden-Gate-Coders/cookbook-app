@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.first
   end
 
-  def all_recipes
+  def index
     @recipes = Recipe.all
   end
 
