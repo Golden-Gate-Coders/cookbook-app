@@ -26,8 +26,5 @@ class RecipesController < ApplicationController
   def sass_example
   end
 
-  def new_recipe
-  end
-
 end
 
