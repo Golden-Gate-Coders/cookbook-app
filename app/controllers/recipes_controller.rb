@@ -1,12 +1,18 @@
 class RecipesController < ApplicationController
 
-  def view_recipe
-    @recipe = Recipe.first
-  end
-
+  # RESTful routes
   def index
     @recipes = Recipe.all
   end
+
+  def show
+    recipe_id = params[:id]
+    @recipe = Recipe.find_by(id: recipe_id)
+  end
+
+
+
+
 
   def sass_example
   end

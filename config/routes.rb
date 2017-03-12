@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   # Restful routes
   get "/recipes" => "recipes#index"
+  get "/recipes/:id" => "recipes#show"
 
 end
