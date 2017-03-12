@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   # Show
   get "/recipes/:id" => "recipes#show"
 
+  # Edit and Update
+  get "/recipes/:id/edit" => "recipes#edit"
+  patch "/recipes/:id" => "recipes#update"
 
 
 

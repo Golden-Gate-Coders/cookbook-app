@@ -1,0 +1,22 @@
+<h1>Edit Recipe</h1>
+
+<div class="container">
+<%= form_tag "/recipes/#{@recipe.id}", method: :patch do %>
+  Title: <input type="text" name="recipe_title" 
+                value="<%= @recipe.title %>">
+  <br />
+  Ingredients: <input type="text" name="recipe_ingredients"
+                value="<%= @recipe.ingredients %>">
+  <br />
+  Directions: <input type="text" name="recipe_directions"
+                value="<%= @recipe.directions %>">
+  <br />
+  Chef: <input type="text" name="recipe_chef"
+                value="<%= @recipe.chef %>">
+  <br />
+  Prep Time: <input type="text" name="recipe_prep_time"
+                value="<%= @recipe.prep_time %>">
+  <br />
+  <input type="submit" value="Edit Recipe">
+<% end %>
+</div>
