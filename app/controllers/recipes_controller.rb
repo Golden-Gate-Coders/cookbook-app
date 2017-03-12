@@ -10,7 +10,16 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: recipe_id)
   end
 
+  def new
+  end
 
+  def create
+    input_title = params[:recipe_title]
+    input_ingredients = params[:recipe_ingredients]
+    input_directions = params[:recipe_directions]
+
+    @recipe = Recipe.create(title: input_title, ingredients: input_ingredients, directions: input_directions)
+  end
 
 
 
@@ -18,14 +27,6 @@ class RecipesController < ApplicationController
   end
 
   def new_recipe
-  end
-
-  def create_recipe
-    input_title = params[:recipe_title]
-    input_ingredients = params[:recipe_ingredients]
-    input_directions = params[:recipe_directions]
-
-    @recipe = Recipe.create(title: input_title, ingredients: input_ingredients, directions: input_directions)
   end
 
 end

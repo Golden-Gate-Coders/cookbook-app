@@ -8,7 +8,18 @@ Rails.application.routes.draw do
   post "/new_recipe" => "recipes#create_recipe"
 
   # Restful routes
+
+  # Index
   get "/recipes" => "recipes#index"
+
+  # New and Create
+  get "/recipes/new" => "recipes#new"
+  post "/recipes" => "recipes#create"
+
+  # Show
   get "/recipes/:id" => "recipes#show"
+
+
+
 
 end
