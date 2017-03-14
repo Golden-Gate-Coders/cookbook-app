@@ -19,6 +19,8 @@ class RecipesController < ApplicationController
     input_directions = params[:recipe_directions]
 
     @recipe = Recipe.create(title: input_title, ingredients: input_ingredients, directions: input_directions)
+
+    redirect_to "/recipes/#{@recipe.id}"
   end
 
   def edit
@@ -47,6 +49,7 @@ class RecipesController < ApplicationController
   def destroy
     recipe = Recipe.find_by(id: params[:id])
     recipe.destroy
+    redirect_to "/recipes"
   end
 
 
