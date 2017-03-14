@@ -43,6 +43,7 @@ class RecipesController < ApplicationController
     @recipe.prep_time = input_prep_time
     @recipe.save
 
+    flash[:success] = "Recipe updated successfully!"
     redirect_to "/recipes/#{@recipe.id}"
   end
 
