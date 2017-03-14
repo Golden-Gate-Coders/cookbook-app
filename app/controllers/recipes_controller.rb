@@ -20,6 +20,7 @@ class RecipesController < ApplicationController
 
     @recipe = Recipe.create(title: input_title, ingredients: input_ingredients, directions: input_directions)
 
+    flash[:success] = "Recipe created successfully!"
     redirect_to "/recipes/#{@recipe.id}"
   end
 
@@ -43,13 +44,15 @@ class RecipesController < ApplicationController
     @recipe.prep_time = input_prep_time
     @recipe.save
 
-    flash[:success] = "Recipe updated successfully!"
+    flash[:info] = "Recipe updated successfully!"
     redirect_to "/recipes/#{@recipe.id}"
   end
 
   def destroy
     recipe = Recipe.find_by(id: params[:id])
     recipe.destroy
+
+    flash[:danger] = "Recipe destroyed successfully!"
     redirect_to "/recipes"
   end
 
