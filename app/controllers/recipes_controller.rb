@@ -44,6 +44,11 @@ class RecipesController < ApplicationController
     redirect_to "/recipes/#{@recipe.id}"
   end
 
+  def destroy
+    recipe = Recipe.find_by(id: params[:id])
+    recipe.destroy
+  end
+
 
   def sass_example
   end

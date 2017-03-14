@@ -6,3 +6,9 @@ Title: <%= @recipe.title %>
 Directions: <%= @recipe.directions %>
 <br />
 Ingredients: <%= @recipe.ingredients %>
+
+<br />
+<br />
+<%= link_to "Edit Recipe", "/recipes/#{@recipe.id}/edit" %>
+<br />
+<%= link_to "Delete Recipe", "/recipes/#{@recipe.id}", method: :delete %>

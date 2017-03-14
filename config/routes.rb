@@ -19,6 +19,13 @@ Rails.application.routes.draw do
   get "/recipes/:id/edit" => "recipes#edit"
   patch "/recipes/:id" => "recipes#update"
 
+  # Delete
+  delete "/recipes/:id" => "recipes#destroy"
 
 
 end
+
+
+
+
+
