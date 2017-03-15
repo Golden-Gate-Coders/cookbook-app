@@ -3,9 +3,28 @@
 
 Title: <%= @recipe.title %>
 <br />
-Directions: <%= @recipe.directions %>
 <br />
-Ingredients: <%= @recipe.ingredients %>
+Directions: <%= @recipe.directions %>
+
+<ol>
+  <% @recipe.directions_split.each do |direction| %>
+  <li><%= direction %></li>
+  <% end %>
+</ol>
+
+<br />
+<br />
+Ingredients:
+<ul>
+  <% @recipe.ingredients_split.each do |ingredient| %>
+    <li> <%= ingredient %> </li>
+  <% end %>
+</ul>
+
+<br />
+<br />
+
+Created at: <%= @recipe.friendly_time %>
 
 <br />
 <br />
