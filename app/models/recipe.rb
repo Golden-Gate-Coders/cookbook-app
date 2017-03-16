@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
 
+  # Instance Methods
   # @recipe.ingredients_split
   def ingredients_split
     ingredients.split(", ")
@@ -12,5 +13,21 @@ class Recipe < ApplicationRecord
   def friendly_time
     created_at.strftime("%B %e, %Y")
   end
+
+
+  # Class Methods
+  # Recipe.recipes_by_john
+  def self.recipes_by_john
+    recipes = Recipe.all
+    john_recipes = []
+    recipes.each do |recipe|
+      if recipe.chef == "John Smith"
+        john_recipes << recipe
+      end
+    end
+    john_recipes
+  end
+
+
 
 end
