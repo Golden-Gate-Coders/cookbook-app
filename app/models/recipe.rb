@@ -29,5 +29,11 @@ class Recipe < ApplicationRecord
   end
 
 
+  # Geocoding model method
+  def geocode(address)
+    coordinates = Geocoder.coordinates(address)
+    return coordinates
+  end
+
 
 end

@@ -2,7 +2,14 @@ class RecipesController < ApplicationController
 
   # RESTful routes
   def index
-    @recipes = Recipe.all
+    sort = params[:sort]
+    sort_order = params[:sort_order]
+
+    if sort && sort_order
+      @recipes = Recipe.all.order(sort => sort_order)
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -18,7 +25,15 @@ class RecipesController < ApplicationController
     input_ingredients = params[:recipe_ingredients]
     input_directions = params[:recipe_directions]
 
-    @recipe = Recipe.create(title: input_title, ingredients: input_ingredients, directions: input_directions)
+    input_address = params[:recipe_address]
+
+    @recipe = Recipe.new(title: input_title, ingredients: input_ingredients, directions: input_directions)
+
+    coordinates = @recipe.geocode(input_address)
+    
+    @recipe.latitude = coordinates[0]
+    @recipe.longitude = coordinates[1]
+    @recipe.save
 
     flash[:success] = "Recipe created successfully!"
     redirect_to "/recipes/#{@recipe.id}"

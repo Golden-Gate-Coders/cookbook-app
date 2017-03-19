@@ -1,5 +1,15 @@
 <h1>Recipes</h1>
 
+<a href="/recipes?sort=title&sort_order=asc">Sort by Title Ascending</a>
+<br />
+<a href="/recipes?sort=title&sort_order=desc">Sort by Title Descending</a>
+<br />
+
+<a href="/recipes?sort=prep_time&sort_order=asc">Sort by Prep Time Ascending</a>
+<br />
+<a href="/recipes?sort=prep_time&sort_order=desc">Sort by Prep Time Descending</a>
+<br />
+
 <% @recipes.each_slice(3) do |three_recipes| %>
   <div class="row">
     <% three_recipes.each do |recipe| %>
@@ -7,6 +17,8 @@
         <div class="well">
           <a href="/recipes/<%= recipe.id %>">
             <h2><%= recipe.title %></h2>
+            <h3><%= recipe.prep_time %></h3>
+            <br />
             <img class="index_recipe_image" src="<%= recipe.image %>">
           </a>
         </div>

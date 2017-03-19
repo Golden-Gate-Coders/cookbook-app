@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308023736) do
+ActiveRecord::Schema.define(version: 20170317010754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170308023736) do
     t.string   "chef"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end
