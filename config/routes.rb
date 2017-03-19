@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # Delete
   delete "/recipes/:id" => "recipes#destroy"
 
+  # Search
+  post "/search" => "recipes#search"
+
 
 end
 

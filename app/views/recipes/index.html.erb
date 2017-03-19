@@ -1,14 +1,34 @@
 <h1>Recipes</h1>
 
+<br />
 <a href="/recipes?sort=title&sort_order=asc">Sort by Title Ascending</a>
 <br />
 <a href="/recipes?sort=title&sort_order=desc">Sort by Title Descending</a>
 <br />
 
+<br />
 <a href="/recipes?sort=prep_time&sort_order=asc">Sort by Prep Time Ascending</a>
 <br />
 <a href="/recipes?sort=prep_time&sort_order=desc">Sort by Prep Time Descending</a>
 <br />
+<br />
+
+<br />
+
+<a href="/recipes?time=quick">Show me quick recipes</a>
+<a href="/recipes?time=quick&sort=true">Show me quick recipes, sorted</a>
+
+<br />
+<br />
+
+<%= form_tag "/search", method: :post do %>
+  Search: <input type="text" name="search_term">
+  <input type="submit" value="Search!">
+<% end %>
+
+<br />
+<br />
+
 
 <% @recipes.each_slice(3) do |three_recipes| %>
   <div class="row">
@@ -17,7 +37,7 @@
         <div class="well">
           <a href="/recipes/<%= recipe.id %>">
             <h2><%= recipe.title %></h2>
-            <h3><%= recipe.prep_time %></h3>
+            <h4>Prep Time: <%= recipe.prep_time %> minutes</h4>
             <br />
             <img class="index_recipe_image" src="<%= recipe.image %>">
           </a>

@@ -4,8 +4,14 @@ class RecipesController < ApplicationController
   def index
     sort = params[:sort]
     sort_order = params[:sort_order]
+    time = params[:time]
 
-    if sort && sort_order
+    if time
+      @recipes = Recipe.where("prep_time < ?", 20)
+      if sort
+        @recipes = @recipes.order(prep_time: :desc)
+      end
+    elsif sort && sort_order
       @recipes = Recipe.all.order(sort => sort_order)
     else
       @recipes = Recipe.all
@@ -13,8 +19,20 @@ class RecipesController < ApplicationController
   end
 
   def show
-    recipe_id = params[:id]
-    @recipe = Recipe.find_by(id: recipe_id)
+    if params[:id] == "random"
+      # Select random recipe from the database
+      recipes = Recipe.all
+      @recipe = recipes.sample
+    else
+      recipe_id = params[:id]
+      @recipe = Recipe.find_by(id: recipe_id)
+    end
+  end
+
+  def search
+    search_term = params[:search_term]
+    @recipes = Recipe.where("title ILIKE ?", "%#{search_term}%")
+    render :index
   end
 
   def new
