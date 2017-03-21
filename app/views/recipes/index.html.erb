@@ -14,15 +14,6 @@
 <br />
 <br />
 
-<%= form_tag "/search", method: :post do %>
-  Search: <input type="text" name="search_term">
-  <input type="submit" value="Search!">
-<% end %>
-
-<br />
-<br />
-
-
 <% @recipes.each_slice(3) do |three_recipes| %>
   <div class="row">
     <% three_recipes.each do |recipe| %>

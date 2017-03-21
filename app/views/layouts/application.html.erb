@@ -30,6 +30,15 @@
         <ul class="nav navbar-nav">
         </ul>
         <ul class="nav navbar-nav navbar-right">
+        
+          <!-- Search form -->
+          <%= form_tag "/search", method: :post, class: "navbar-form navbar-left" do %>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search for Recipes" name="search_term">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+          <% end %>
+
           <li><a href="/recipes?time=quick">Quick Recipes</a></li>
 
           <li><a href="/recipes/new">New Recipe</a></li>
