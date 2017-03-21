@@ -1,6 +1,8 @@
 class Recipe < ApplicationRecord
 
   belongs_to :chef
+  has_many :images
+
   # def chef
   #   Chef.find_by(id: chef_id)
   # end

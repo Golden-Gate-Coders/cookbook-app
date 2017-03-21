@@ -28,6 +28,12 @@ Rails.application.routes.draw do
   post "/search" => "recipes#search"
 
 
+  # Images Form
+  get "/recipes/:recipe_id/images/new" => "images#new"
+  post "/recipes/:recipe_id/images" => "images#create"
+
+
+
 end
 
 

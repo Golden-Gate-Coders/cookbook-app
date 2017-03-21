@@ -1,3 +1,9 @@
+
+
+<% @recipe.images.each do |image| %>
+  <img src="<%= image.url %>" class="index_recipe_image">
+<% end %>
+
 <h1>Recipe</h1>
 
 
@@ -26,6 +32,8 @@ Ingredients:
 Created at: <%= @recipe.friendly_time %>
 
 <br />
+<br />
+<%= link_to "Add Image to Recipe", "/recipes/#{@recipe.id}/images/new" %>
 <br />
 <%= link_to "Edit Recipe", "/recipes/#{@recipe.id}/edit" %>
 <br />

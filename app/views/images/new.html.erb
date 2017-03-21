@@ -1,0 +1,12 @@
+<h1>Add an Image</h1>
+
+<h2>Adding image to: <%= @recipe.title %></h2>
+
+
+<%= form_tag "/recipes/#{@recipe.id}/images", method: :post do %>
+
+  URL: <input type="text" name="image_url">
+  <input type="submit" value="Add Image">
+
+
+<% end %>

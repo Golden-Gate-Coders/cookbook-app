@@ -9,7 +9,7 @@
   <br />
   Directions: <input type="text" name="recipe_directions">
   <br />
-  Chef: <input type="text" name="recipe_chef_id">
+  Chef: <%= collection_select(:recipe, :chef_id, Chef.all, :id, :name, prompt: "Select a Chef") %>
   <br />
   Prep Time: <input type="text" name="recipe_prep_time">
   <br />
