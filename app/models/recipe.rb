@@ -1,5 +1,10 @@
 class Recipe < ApplicationRecord
 
+  belongs_to :chef
+  # def chef
+  #   Chef.find_by(id: chef_id)
+  # end
+
   # Instance Methods
   # @recipe.ingredients_split
   def ingredients_split

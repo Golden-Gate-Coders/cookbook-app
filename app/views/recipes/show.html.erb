@@ -4,25 +4,24 @@
 Title: <%= @recipe.title %>
 <br />
 <br />
-Directions: <%= @recipe.directions %>
+Chef: <%= @recipe.chef.name %>
 
+<br />
+<br />
+
+Directions:
 <ol>
   <% @recipe.directions_split.each do |direction| %>
   <li><%= direction %></li>
   <% end %>
 </ol>
 
-<br />
-<br />
 Ingredients:
 <ul>
   <% @recipe.ingredients_split.each do |ingredient| %>
     <li> <%= ingredient %> </li>
   <% end %>
 </ul>
-
-<br />
-<br />
 
 Created at: <%= @recipe.friendly_time %>
 
