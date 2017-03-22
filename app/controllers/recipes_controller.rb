@@ -2,6 +2,15 @@ class RecipesController < ApplicationController
 
   # RESTful routes
   def index
+
+    if session[:count]
+      session[:count] += 1
+    else
+      session[:count] = 0
+    end
+    
+    @visitor_count = session[:count]
+
     sort = params[:sort]
     sort_order = params[:sort_order]
     time = params[:time]
