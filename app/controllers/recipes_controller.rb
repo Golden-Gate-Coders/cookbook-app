@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
 
   # RESTful routes
   def index
@@ -42,7 +43,7 @@ class RecipesController < ApplicationController
     input_title = params[:recipe_title]
     input_ingredients = params[:recipe_ingredients]
     input_directions = params[:recipe_directions]
-    input_chef_id = params[:recipe_chef_id]
+    input_chef_id = params[:recipe][:chef_id]
     input_prep_time = params[:recipe_prep_time]
 
     input_address = params[:recipe_address]

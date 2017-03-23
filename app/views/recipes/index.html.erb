@@ -24,7 +24,9 @@
             <h2><%= recipe.title %></h2>
             <h4>Prep Time: <%= recipe.prep_time %> minutes</h4>
             <br />
-            <img class="index_recipe_image" src="<%= recipe.images.first.url %>">
+            <% if !recipe.images.empty? %>
+              <img class="index_recipe_image" src="<%= recipe.images.first.url %>">
+            <% end %>
           </a>
         </div>
       </div>
