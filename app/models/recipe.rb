@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
 
   belongs_to :chef
+  belongs_to :user
   has_many :images
 
   # def chef
